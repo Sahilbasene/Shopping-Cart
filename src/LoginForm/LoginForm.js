@@ -1,50 +1,9 @@
-// import React, { useState } from 'react';
-
-// import './LoginForm.css';
-
- 
-// const LoginForm = () => {
-//   const [showPassword, setShowPassword] = useState(false);
- 
-//   const handleTogglePassword = () => {
-//     setShowPassword(!showPassword);
-//   };
-  
-
-//   return (
-// <div className="login-container">
-// <div className="login-form">
-// <label className="Login_label">User Login</label>
-
-// <input type="text" placeholder="User ID" className="input-field" />
-// <div className="password-container">
-// <input
-//             type={showPassword ? "text" : "password"}
-//             placeholder="Password"
-//             className="input-field"
-//           />
-// <span className="toggle-password" onClick={handleTogglePassword}>
-            
-// </span>
-// </div>
-// <button className="continue-button">CONTINUE</button>
-// <a href="www.google.com" className="forgot-password">FORGOT PASSWORD</a>
-// </div>
-// </div>
-//   );
-// };
- 
-// export default LoginForm;
-
-
-//updated code below
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css';
  
 const LoginForm = () => {
-  const [userId, setUserId] = useState('');
+  const [Username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
@@ -65,9 +24,9 @@ const LoginForm = () => {
  
   const validateForm = () => {
     const newErrors = {};
-    if (!userId) newErrors.userId = 'User ID is required';
+    if (!Username) newErrors.Username = 'User ID is required';
     if (!password) newErrors.password = 'Password is required';
-    if (userId && !validateEmail(userId)) newErrors.userId = 'Invalid email format';
+    if (Username && !validateEmail(Username)) newErrors.Username = 'Invalid email format';
     if (password && !validatePassword(password)) newErrors.password = 'Password must be 8-20 characters long, include at least one digit, one upper case letter, one lower case letter, one special character, and no white spaces';
  
     setErrors(newErrors);
@@ -79,8 +38,8 @@ const LoginForm = () => {
     if (!validateForm()) return;
  
     try {
-      const response = await axios.post('https://localhost:7280/api/Login', {
-        userId,
+      const response = await axios.post('https://localhost:7280/api/Login/login', {
+        Username,
         password,
       });
  
@@ -100,17 +59,18 @@ const LoginForm = () => {
           type="text"
           placeholder="User ID"
           className="input-field"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
+          value={Username}
+          onChange={(e) => setUsername(e.target.value)}
         />
-        {errors.userId && <div className="error">{errors.userId}</div>}
+        {errors.Username && <div className="error">{errors.Username}</div>}
 <div className="password-container">
 <input
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder="Password "
             className="input-field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            
           />
 <span className="toggle-password" onClick={handleTogglePassword}>
             👁
