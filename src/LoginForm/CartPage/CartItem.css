@@ -1,0 +1,32 @@
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+   
+  .item-image {
+    width: 100px;
+    height: 100px;
+  }
+   
+  .item-details {
+    margin-top: 10px;
+    text-align: center;
+  }
+   
+  .add-to-basket {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+   
+  .add-to-basket:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,38 @@
+.cart-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+   
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+  }
+   
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+   
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+   
+  .user-info span {
+    margin-right: 10px;
+  }
+   
+  .cart-icon {
+    width: 30px;
+  }
+   
+  .cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
